@@ -1,63 +1,56 @@
 
-## PENERAPAN ABSTRACT CLASS, INTERFACE, OVERLOADING, DAN OVERRIDING  
+### Penerapan Abstract Class, Interface, Overload, dan Override  
+
+Dosen Pengampu : Bayu Adhi Nugroho, Ph.D.  
 
 ---
 
-## PENDAHULUAN  
-
-Pemrograman Berorientasi Objek (PBO) merupakan paradigma pemrograman yang berfokus pada objek sebagai representasi dunia nyata. Objek memiliki **atribut** (data) dan **method** (perilaku) yang membuat sistem lebih modular, mudah dikembangkan, serta mendukung prinsip *reusability* dan *maintainability*.  
-
-Sebelumnya saya sudah mempelajari konsep **Inheritance (pewarisan)**, yaitu mekanisme sebuah kelas turunan (subclass) yang dapat mewarisi atribut dan method dari kelas induk (superclass). Konsep ini menjadi dasar untuk memahami materi berikutnya, karena abstract class, interface, overloading, dan overriding semuanya berhubungan erat dengan pewarisan.  
-
-Konsep utama yang saya kerjakan pada praktikum ini adalah:  
-
-1. **Abstract Class** → kelas dasar yang tidak dapat diinstansiasi secara langsung, hanya bisa diwariskan.  
-2. **Interface** → kontrak perilaku yang wajib diimplementasikan oleh kelas lain, serta mendukung *multiple inheritance*.  
-3. **Overloading** → metode dengan nama sama tetapi parameter berbeda (jumlah/tipe).  
-4. **Overriding** → metode induk ditulis ulang oleh turunan dengan implementasi berbeda (mendukung *polymorphism*).  
+## 📌 Identitas  
+- **Kelas** : H7B.3  
+- **Program Studi** : Sistem Informasi  
+- **Fakultas** : Sains dan Teknologi  
+- **Universitas** : UIN Sunan Ampel Surabaya  
+- **Tahun** : 2025  
 
 ---
 
-## IMPLEMENTASI  
+## 📖 Pendahuluan  
+Pemrograman Berorientasi Objek (PBO) adalah paradigma yang memodelkan program berdasarkan objek yang memiliki atribut (data) dan method (perilaku). Dengan pendekatan ini, program menjadi lebih terstruktur, mudah dipahami, dan mendekati gambaran dunia nyata.  
 
-### 1. PROFESI (ABSTRACT CLASS & INTERFACE)  
-- Hierarki dimulai dari `Manusia` (concrete class).  
-- Diturunkan ke `Pekerjaan` (abstract class).  
-- Dari `Pekerjaan` diturunkan ke `Dokter` (abstract class).  
-- `Dokter` memiliki turunan spesifik: `DokterUmum`, `DokterHewan`, dan `DokterGigi` (concrete class).  
-- Saya menambahkan interface `Pemeriksaan`, `ResepObat`, dan `Operasi` untuk memberi perilaku sesuai bidangnya.  
+Pada pertemuan sebelumnya telah dipelajari:  
+- **Inheritance** → pewarisan atribut dan method dari kelas induk ke kelas turunan.  
+- **Constructor** → method khusus yang dipanggil saat objek dibuat untuk inisialisasi atribut.  
 
-Dengan struktur ini saya bisa menunjukkan bagaimana **abstract class** menjadi kerangka umum, sedangkan **interface** menambahkan perilaku khusus.  
+Kedua konsep ini menjadi dasar penting sebelum mempelajari materi berikutnya.  
 
----
-
-### 2. TOKO KUE (OVERLOADING & OVERRIDING)  
-- **Overloading**: method `jualKue()` saya buat dengan parameter berbeda (nama kue saja, nama + jumlah, nama + jumlah + harga).  
-- **Overriding**: method `infoKue()` di kelas `Kue` saya tulis ulang di `KueCoklat` dan `KueKeju`.  
-
-Bagian ini memperlihatkan bagaimana satu nama method bisa fleksibel (overloading), sekaligus bisa berperilaku berbeda tergantung objek (overriding).  
+Konsep utama dalam praktikum ini adalah:  
+- **Abstract Class** → kelas dasar yang tidak dapat diinstansiasi langsung, hanya diwariskan.  
+- **Interface** → kontrak perilaku, dapat mendukung multiple inheritance.  
+- **Overload** → satu nama method dengan parameter berbeda dalam satu kelas.  
+- **Override** → penulisan ulang method induk pada subclass dengan implementasi berbeda.  
 
 ---
 
-## KESIMPULAN  
+## 🚀 Implementasi  
 
-Dari praktikum ini saya menyimpulkan bahwa:  
-
-- **Inheritance** adalah dasar dari pewarisan atribut dan method.  
-- **Abstract Class** memberi kerangka umum yang wajib diikuti turunan.  
-- **Interface** menambahkan kontrak perilaku dan mendukung multiple inheritance.  
-- **Overloading** membuat method lebih fleksibel.  
-- **Overriding** membuat method yang sama bisa berperilaku berbeda sesuai objeknya.  
-
-Dengan memadukan semuanya, saya bisa membangun program yang lebih terstruktur, fleksibel, dan mudah dikembangkan.  
-
----
-
-## 📝 IDENTITAS  
-
-- **Nama** : Titha Auliya Khotim
-- **NIM** : 09010624017
-- **Kelas** : H7B.3
-- **Dosen Pengampu** : Bayu Adhi Nugroho, Ph.D
+### Studi Kasus 1: Profesi (Abstract Class & Interface)  
+1. **Manusia** → kelas induk dengan atribut umum (`nama`, `jenisKelamin`) dan method `identitas()`.  
+2. **Pekerjaan** → abstract class turunan dari Manusia, memiliki method abstrak `jenisPekerjaan()`.  
+3. **Dokter** → abstract class turunan Pekerjaan, menambahkan `spesialisasi()` dan override `jenisPekerjaan()`.  
+4. **Interface tambahan**:  
+   - `Pemeriksaan` → `memeriksaPasien()`  
+   - `ResepObat` → `menulisResep()`  
+   - `Operasi` → `melakukanOperasi()`  
+5. **Kelas Konkret (Spesialis Dokter)**:  
+   - `DokterUmum` → implementasi Pemeriksaan & ResepObat.  
+   - `DokterHewan` → implementasi Pemeriksaan, ResepObat & Operasi.  
+   - `DokterGigi` → implementasi Pemeriksaan & Operasi.  
+6. **Main** → membuat objek dokter, memanggil `identitas()`, `jenisPekerjaan()`, `spesialisasi()`, dan method dari interface.  
 
 ---
+
+### Studi Kasus 2: Toko Kue (Overload & Override)  
+1. **Overload pada TokoKue**  
+   - Method `beliKue()` dibuat dalam beberapa bentuk:  
+     - `beliKue(String namaKue)`  
+     - `beliKue(String n
